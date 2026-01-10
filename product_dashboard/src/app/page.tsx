@@ -1,8 +1,11 @@
-export default function HomePage() {
+import { fetchProducts } from "@/lib/api";
+import ProductGrid from "@/components/ProductGrid";
+
+export default async function HomePage() {
+  const products = await fetchProducts();
   return (
     <main className="p-6">
-      <h1 className="text-2xl font-semibold">Product Explorer</h1>
+      <ProductGrid products={products} />
     </main>
   );
 }
-
